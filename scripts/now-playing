@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if playerctl status >/dev/null 2>&1; then
+  INFO=$(playerctl metadata --format "{{ artist }} - {{ title }} [{{ album }}]")
+  
+  if [ $(playerctl status) == "Playing" ]; then
+    echo " $INFO"
+  elif [ $(playerctl status) == "Paused" ]; then
+    echo " (PAUSED) $INFO"
+  fi
+else
+  echo ""
+fi

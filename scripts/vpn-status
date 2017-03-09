@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+status=$(vpn current)
+
+if [ -z "$status" ]; then
+  echo ""
+else
+  echo " $status"
+fi
